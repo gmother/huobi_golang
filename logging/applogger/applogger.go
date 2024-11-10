@@ -30,6 +30,14 @@ func SetLevel(level zapcore.Level) {
 	atomicLevel.SetLevel(level)
 }
 
+func SetLogger(logger *zap.SugaredLogger) {
+	sugaredLogger = logger
+}
+
+func GetLogger() *zap.SugaredLogger {
+	return sugaredLogger
+}
+
 func Fatal(template string, args ...interface{}) {
 	sugaredLogger.Fatalf(template, args...)
 }
